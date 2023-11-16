@@ -1,0 +1,19 @@
+.active {
+    background-color: transparent !important;
+    color: #EEFF25 !important;
+}
+
+a:active {
+    background-color: transparent !important;
+    color: #bdce09 !important;
+}
+
+a:hover {
+    background-color: transparent !important;
+    color: #d6e909 !important;
+}
+
+a:focus {
+    background-color: transparent !important;
+    color: #d1e409 !important;
+}
