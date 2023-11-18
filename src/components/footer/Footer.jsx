@@ -1,3 +1,4 @@
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 
 
 const Footer = () => {
@@ -15,7 +16,13 @@ const Footer = () => {
                 </nav>
                 <aside className="mx-auto p-10 text-center h-full w-full bg-[#111827]">
                     <div className="text-2xl text-center mx-auto">Follow US</div>
-                    <p className="mx-auto">ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <div className="mx-auto">
+                        Join us on social media
+                        <br /><br></br>
+                        <div className="text-xl grid grid-cols-3 justify-center ml-5">
+                            <FaFacebook className="text-center"></FaFacebook> <FaInstagram></FaInstagram> <FaTwitter></FaTwitter>
+                        </div>
+                    </div>
                 </aside>
             </footer>
             <div className="text-center p-4 bg-black text-white">
