@@ -40,7 +40,7 @@ const Home = () => {
             <section>
                 <FormOurMenu></FormOurMenu>
             </section>
-            <section>
+            <section className="max-w-5xl xl:max-w-[1320px] mx-auto">
                 <Testimonials></Testimonials>
             </section>
 
