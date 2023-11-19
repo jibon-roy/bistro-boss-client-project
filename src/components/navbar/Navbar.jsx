@@ -20,8 +20,8 @@ const Navbar = () => {
                 </div>
             </div>
         </NavLink></li>
-        <li><NavLink to='blog'>SIGN OUT</NavLink></li>
-        <li><NavLink to='blog'><FaCircleUser className="text-3xl"></FaCircleUser></NavLink></li>
+        <li><NavLink to='/register'>Register</NavLink></li>
+        <li><NavLink to='/login'><FaCircleUser className="text-3xl"></FaCircleUser></NavLink></li>
     </>
 
     return (
