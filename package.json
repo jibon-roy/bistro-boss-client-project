@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.18",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.6",
     "axios": "^1.6.2",
     "firebase": "^10.6.0",
+    "flowbite-react": "^0.6.4",
     "keen-slider": "^6.8.6",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -23,7 +28,9 @@
     "react-parallax": "^3.5.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.18.0",
+    "react-tabs": "^6.0.2",
     "sort-by": "^0.0.2",
+    "styled-components": "^6.1.1",
     "swiper": "^11.0.4"
   },
   "devDependencies": {
