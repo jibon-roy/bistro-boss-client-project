@@ -6,10 +6,12 @@ import { useEffect, useRef, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa6';
 import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import useAuthContext from '../../hooks/useAuthContext';
 
 const Login = () => {
     const captchaRef = useRef();
-    const [activeBtn, setActiveBtn] = useState(true)
+    const [activeBtn, setActiveBtn] = useState(true);
+    const { googleSignIn } = useAuthContext()
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -81,7 +83,7 @@ const Login = () => {
                                 <button className='border rounded-full border-solid p-2 border-stone-600'>
                                     <FaFacebookF></FaFacebookF>
                                 </button>
-                                <button className='border rounded-full border-solid p-2 border-stone-600'>
+                                <button onClick={googleSignIn} className='border rounded-full border-solid p-2 border-stone-600'>
                                     <FaGoogle></FaGoogle>
                                 </button>
                                 <button className='border rounded-full border-solid p-2 border-stone-600'>

@@ -17,7 +17,7 @@ const MenuTabs = () => {
         publicAxios.get(`/ourMenu`)
             .then(res => setItems(res.data))
             .catch(err => console.log(err));
-    }, [])
+    }, [publicAxios])
 
     const salad = items?.filter(item => item?.category === 'salad');
     const pizza = items?.filter(item => item?.category === 'pizza');

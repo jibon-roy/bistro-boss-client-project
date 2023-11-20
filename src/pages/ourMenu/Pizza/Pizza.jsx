@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CommonItemLoader from "../../../components/commonItemLoader/CommonItemLoader";
 import useAxios from "../../../hooks/useAxios";
 
@@ -11,10 +11,12 @@ const Pizza = () => {
 
     const axiosSeceure = useAxios();
 
-    axiosSeceure.get('/homeMenus')
-        .then(result => setItems(result?.data))
-        .catch(err => console.log(err));
+    useEffect(() => {
+        axiosSeceure.get('/homeMenus')
+            .then(result => setItems(result?.data))
+            .catch(err => console.log(err));
 
+    }, [axiosSeceure])
 
     return (
         <div>

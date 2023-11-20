@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../../components/card/Card";
 import useAxios from "../../../hooks/useAxios";
 import MainHeader from "../../../components/mainHeader/MainHeader";
@@ -9,8 +9,12 @@ const Recommends = () => {
     const [recommends, setRecommends] = useState();
     const axiosSeceure = useAxios();
 
-    axiosSeceure.get('/homeMenus')
-        .then(res => setRecommends(res.data))
+    useEffect(() => {
+        axiosSeceure.get('/homeMenus')
+            .then(result => setRecommends(result?.data))
+            .catch(err => console.log(err));
+
+    }, [axiosSeceure])
 
     return (
         <div className="mb-20">

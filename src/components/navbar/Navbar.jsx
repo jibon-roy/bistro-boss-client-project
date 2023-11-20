@@ -2,14 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import './nav.css'
 import Title from '/name.png'
 import { FaCartPlus, FaCircleUser } from "react-icons/fa6";
+import { useContext } from "react";
+import { AuthContext } from "../../utilities/AuthProvider/AuthProvider";
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='blog'>CONTACT us</NavLink></li>
-        <li><NavLink to='blog'>DASHBOARD</NavLink></li>
+        {user && <li><NavLink to='/dashboard'>DASHBOARD</NavLink></li>}
         <li><NavLink to='/ourMenu'>Our Menu</NavLink></li>
         <li><NavLink to='ourShop'>Our Shop</NavLink></li>
         <li><NavLink to='blog'>
@@ -20,8 +23,11 @@ const Navbar = () => {
                 </div>
             </div>
         </NavLink></li>
-        <li><NavLink to='/register'>Register</NavLink></li>
-        <li><NavLink to='/login'><FaCircleUser className="text-3xl"></FaCircleUser></NavLink></li>
+        {user ? <li><Link onClick={logOut}>Log Out</Link></li> : <li><NavLink to='/register'>Register</NavLink></li>}
+        {user ? <li><Link>
+            {user?.photoURL ? <img src={user.photoURL} className="w-8 rounded-full"></img> :
+                <FaCircleUser className="text-3xl"></FaCircleUser>}
+        </Link></li> : <li><NavLink to='/login'>Log In</NavLink></li>}
     </>
 
     return (

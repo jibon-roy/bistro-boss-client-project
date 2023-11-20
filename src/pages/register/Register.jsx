@@ -4,9 +4,13 @@ import bgImage from '../../assets/others/bg.png'
 import { FaGoogle } from 'react-icons/fa6';
 import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const Register = () => {
 
+    const { newUserWithEmailPassword, googleSignIn } = useAuthContext();
     const bgStyle = {
         backgroundImage: `url(${bgImage})`,
         backgroundSize: 'cover'
@@ -14,6 +18,36 @@ const Register = () => {
 
     const loginformSubmit = (e) => {
         e.preventDefault();
+
+        const form = e.currentTarget;
+        const userName = form.name.value;
+        const email = form.email.value;
+        const photoUrl = form.url.value;
+        const password = form.password.value;
+
+        newUserWithEmailPassword(email, password)
+            .then(res => {
+                if (res.user) {
+                    updateProfile(res.user, {
+                        displayName: userName,
+                        photoURL: photoUrl
+                    })
+                    Swal.fire({
+                        title: "Registration Successful",
+                        text: "Great! You have registered.",
+                        icon: "success"
+                    }).then(location.reload());
+                }
+            })
+            .catch(err => {
+                if (err) {
+                    Swal.fire({
+                        title: "Registration Faild",
+                        text: err.message,
+                        icon: "error"
+                    });
+                }
+            })
     }
 
 
@@ -50,7 +84,7 @@ const Register = () => {
                                 <button className='border rounded-full border-solid p-2 border-stone-600'>
                                     <FaFacebookF></FaFacebookF>
                                 </button>
-                                <button className='border rounded-full border-solid p-2 border-stone-600'>
+                                <button onClick={googleSignIn} className='border rounded-full border-solid p-2 border-stone-600'>
                                     <FaGoogle></FaGoogle>
                                 </button>
                                 <button className='border rounded-full border-solid p-2 border-stone-600'>

@@ -7,6 +7,10 @@ import OurMenu from "../pages/ourMenu/OurMenu";
 import OurShop from "../pages/ourShop/OurShop";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import PublicRoute from "./PublicRoute";
+import Dashboard from "../layouts/dashboard/Dashboard";
+import PrivetRouter from "./PrivetRouter";
+
 
 const router = createBrowserRouter([
     {
@@ -25,16 +29,19 @@ const router = createBrowserRouter([
                 path: '/ourShop',
                 element: <OurShop></OurShop>
             },
-
         ]
     },
     {
+        path: '/dashboard',
+        element: <PrivetRouter><Dashboard></Dashboard></PrivetRouter>
+    },
+    {
         path: '/login',
-        element: <Login></Login>
+        element: <PublicRoute><Login></Login></PublicRoute>
     },
     {
         path: '/register',
-        element: <Register></Register>
+        element: <PublicRoute><Register></Register></PublicRoute>
     },
 ])
 

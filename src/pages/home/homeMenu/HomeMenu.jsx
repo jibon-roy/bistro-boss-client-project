@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainHeader from "../../../components/mainHeader/MainHeader";
 import Item from "../../../components/item/Item";
 import useAxios from "../../../hooks/useAxios";
@@ -12,10 +12,12 @@ const HomeMenu = () => {
 
     const axiosSeceure = useAxios();
 
-    axiosSeceure.get('/homeMenus')
-        .then(result => setItems(result?.data))
-        .catch(err => console.log(err));
+    useEffect(() => {
+        axiosSeceure.get('/homeMenus')
+            .then(result => setItems(result?.data))
+            .catch(err => console.log(err));
 
+    }, [axiosSeceure])
 
     return (
         <div className="mb-16">

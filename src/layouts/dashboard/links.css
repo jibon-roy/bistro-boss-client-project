@@ -1,0 +1,27 @@
+.dashboard .active {
+    background-color: transparent !important;
+    color: white !important;
+    background-color: #c08731 !important;
+    border-radius: 0 !important;
+}
+
+.dashboard a:active {
+    background-color: transparent !important;
+    color: white !important;
+    background-color: #c08731 !important;
+    border-radius: 0 !important;
+}
+
+.dashboard a:hover {
+    background-color: transparent !important;
+    color: white !important;
+    background-color: #c08731 !important;
+    border-radius: 0 !important;
+}
+
+.dashboard a:focus {
+    background-color: transparent !important;
+    color: white !important;
+    background-color: #c08731 !important;
+    border-radius: 0 !important;
+}
